@@ -1,5 +1,5 @@
-#This script is meant ot act on a CSV report exported from SoloarWinds Orion of all the active servers in an environment.
-#It appempts to map the ipc$ share on each to check for soft-locked servers that are still responding to ping but otherwise are hung, then sends an email report.
+#This script is meant to act on a CSV report, exported from SolarWinds Orion, of all the active servers in an environment.
+#It appempts to map the ipc$ share on each, to check for soft-locked servers that are still responding to ping, but otherwise are hung. Then sends an email report.
 #Be sure to set the email variables as well as the path to the working directory that Orion dumps the CSV to.
 
 #Email Variables
