@@ -25,6 +25,7 @@ foreach ($vcenter in $vcenterServers) {
             Write-Host $logEntry
         }
     }
+    Disconnect-VIServer $vcenter -Confirm:$false
 }
 
 $log | Export-CSV -Path $logFile -Append -notypeinformation
