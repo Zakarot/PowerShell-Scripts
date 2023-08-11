@@ -2,11 +2,18 @@
 #Set a folder to otuput the results to and set you vCenter addresses.
 
 $folder = "\\server\share\path\"
-$logFile = $folder+"VM_ClusterLocations.csv"
+$logFile = $folder+"List-VMsByCluster.csv"
 $vcenterServers = 'vCenter.example.local','anotherVCenter.example.local'
 
 #Prompt for vCenter Credentials
-$vCenterCredential = Get-Credential -Message 'Enter vCenter Credentials'
+if (-not $vCenterCredential) {
+    $vCenterCredential = Get-Credential -Message 'Enter vCenter Credentials'
+}
+
+#Prompt to delete existing file from previous run
+if (Get-Item $logFile) {
+    Remove-Item $logFile -Confirm:$true
+}
 
 #Reset Log Array
 $log = @()
